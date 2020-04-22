@@ -1,21 +1,21 @@
 <div class="container">
     <div class="row col-xs-12">
-        <app-test-message *ngIf="isViewable"></app-test-message>
+        <app-test-message *ngIf="serverCreated"></app-test-message>
         <div class="row col-xs-12 mt-16 mb-16">
             <input type="text" class="form-control px-md-5" [(ngModel)]="userName">
         </div>
         <div class="row col-xs-12">
-            <p *ngIf="serverCreated; else noServer">The server was created. Server name is: {{ serverName }};
-                <span 
+            <p *ngIf="serverCreated">The server was created.</p>
+            <p *ngIf="!serverCreated && !servers.length">No server was created!</p>
+            <div *ngFor="let server of servers">
+                <span>Server name is: {{ server }};</span>
+                <span
                 [ngStyle]="{'background-color': getColor()}"
                 [ngClass]="{online: serverStatus === 'online'}"
                 >Server status is: {{ getStatus() }}</span>
-            </p>
-            <ng-template #noServer>
-                <p>No server was created!</p>
-            </ng-template>
+            </div>
         </div>
-        <button type="button" class="btn btn-primary" (click)="callFunction()" [disabled]="!userName">click</button>
+        <button type="button" class="btn btn-primary" (click)="addServers()" [disabled]="!userName">click</button>
     </div>
 </div>
 

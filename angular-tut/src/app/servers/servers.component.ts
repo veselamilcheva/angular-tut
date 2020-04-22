@@ -7,27 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
 
-  public isViewable: boolean;
   allowNewServer = false;
   userName = '';
   serverName = '';
   serverCreated = false;
   noServer: boolean = true;
   serverStatus: string = 'offline';
+  servers = ['Test1', 'Test2'];
 
   constructor() { 
     this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
   }
 
   ngOnInit(): void {
-    this.isViewable = false;
   }
+
   getStatus = () => this.serverStatus;
+
   getColor = () => this.serverStatus === 'online' ? 'green' : 'red';
-  callFunction = () => {
-    this.isViewable = !this.isViewable;
+
+  addServers = () => {
     this.serverCreated = true;
     this.serverName = this.userName;
+    this.servers.push(this.serverName);
     this.userName = '';
+    setTimeout(() => {
+      this.serverCreated = false;
+    },2000);
   }
 }
