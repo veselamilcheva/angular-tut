@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xs-12">
         <app-test-message *ngIf="isViewable"></app-test-message>
-        <button type="button" class="btn btn-primary" (click)="callFunction()">click</button>
+        <button type="button" class="btn btn-primary" (click)="callFunction()" [disabled]="!allowNewServer">click</button>
     </div>
 </div>
 

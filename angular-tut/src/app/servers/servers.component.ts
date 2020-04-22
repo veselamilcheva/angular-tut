@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
 
   public isViewable: boolean;
+  allowNewServer = false;
 
-  constructor() { }
+  constructor() { 
+    setTimeout(() => {
+      this.allowNewServer = true;
+    }, 2000)
+  }
 
   ngOnInit(): void {
     this.isViewable = false;
