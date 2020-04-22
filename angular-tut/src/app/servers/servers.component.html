@@ -4,7 +4,12 @@
         <div class="row col-xs-12 mt-16 mb-16">
             <input type="text" class="form-control px-md-5" [(ngModel)]="userName">
         </div>
-        <p class="mt-16">{{ userName }}</p>
+        <div class="row col-xs-12">
+            <p *ngIf="serverCreated; else noServer">The server was created. Server name is: {{ serverName }}</p>
+            <ng-template #noServer>
+                <p>No server was created!</p>
+            </ng-template>
+        </div>
         <button type="button" class="btn btn-primary" (click)="callFunction()" [disabled]="!userName">click</button>
     </div>
 </div>

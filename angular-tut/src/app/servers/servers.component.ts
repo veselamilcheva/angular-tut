@@ -10,6 +10,9 @@ export class ServersComponent implements OnInit {
   public isViewable: boolean;
   allowNewServer = false;
   userName = '';
+  serverName = '';
+  serverCreated = false;
+  noServer: boolean = true;
 
   constructor() { 
     setTimeout(() => {
@@ -22,6 +25,8 @@ export class ServersComponent implements OnInit {
   }
   callFunction = () => {
     this.isViewable = !this.isViewable;
+    this.serverCreated = true;
+    this.serverName = this.userName;
     this.userName = '';
   }
 }
