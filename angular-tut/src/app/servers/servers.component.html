@@ -1,7 +1,11 @@
-<div class="row">
-    <div class="col-xs-12">
+<div class="container">
+    <div class="row col-xs-12">
         <app-test-message *ngIf="isViewable"></app-test-message>
-        <button type="button" class="btn btn-primary" (click)="callFunction()" [disabled]="!allowNewServer">click</button>
+        <div class="row col-xs-12 mt-16 mb-16">
+            <input type="text" class="form-control px-md-5" [(ngModel)]="userName">
+        </div>
+        <p class="mt-16">{{ userName }}</p>
+        <button type="button" class="btn btn-primary" (click)="callFunction()" [disabled]="!userName">click</button>
     </div>
 </div>
 

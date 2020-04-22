@@ -3,12 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.scss']
+  styleUrls: ['./servers.component.scss', '../app.component.scss']
 })
 export class ServersComponent implements OnInit {
 
   public isViewable: boolean;
   allowNewServer = false;
+  userName = '';
 
   constructor() { 
     setTimeout(() => {
@@ -21,6 +22,6 @@ export class ServersComponent implements OnInit {
   }
   callFunction = () => {
     this.isViewable = !this.isViewable;
+    this.userName = '';
   }
-
 }
