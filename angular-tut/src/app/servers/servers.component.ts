@@ -13,16 +13,17 @@ export class ServersComponent implements OnInit {
   serverName = '';
   serverCreated = false;
   noServer: boolean = true;
+  serverStatus: string = 'offline';
 
   constructor() { 
-    setTimeout(() => {
-      this.allowNewServer = true;
-    }, 2000)
+    this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
   }
 
   ngOnInit(): void {
     this.isViewable = false;
   }
+  getStatus = () => this.serverStatus;
+  getColor = () => this.serverStatus === 'online' ? 'green' : 'red';
   callFunction = () => {
     this.isViewable = !this.isViewable;
     this.serverCreated = true;

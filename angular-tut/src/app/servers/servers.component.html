@@ -5,7 +5,9 @@
             <input type="text" class="form-control px-md-5" [(ngModel)]="userName">
         </div>
         <div class="row col-xs-12">
-            <p *ngIf="serverCreated; else noServer">The server was created. Server name is: {{ serverName }}</p>
+            <p *ngIf="serverCreated; else noServer">The server was created. Server name is: {{ serverName }};
+                <span [ngStyle]="{'background-color': getColor()}">Server status is: {{ getStatus() }}</span>
+            </p>
             <ng-template #noServer>
                 <p>No server was created!</p>
             </ng-template>
