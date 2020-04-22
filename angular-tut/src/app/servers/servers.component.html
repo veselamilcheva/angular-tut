@@ -6,7 +6,10 @@
         </div>
         <div class="row col-xs-12">
             <p *ngIf="serverCreated; else noServer">The server was created. Server name is: {{ serverName }};
-                <span [ngStyle]="{'background-color': getColor()}">Server status is: {{ getStatus() }}</span>
+                <span 
+                [ngStyle]="{'background-color': getColor()}"
+                [ngClass]="{online: serverStatus === 'online'}"
+                >Server status is: {{ getStatus() }}</span>
             </p>
             <ng-template #noServer>
                 <p>No server was created!</p>
